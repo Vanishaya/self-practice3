@@ -1,0 +1,18 @@
+1.ฟังก์ชัน loadQuotes (Read / GET)ใช้ getItems เพื่อดึง quotes ทั้งหมดจาก server
+await รอผลลัพธ์จาก Promise ถ้าเกิด error → จะโยน error ใหม่พร้อม prefix "Quote:"
+
+ฟังก์ชัน deleteQuote (Delete)รับ quoteId เป็น argument
+เรียก deleteItem เพื่อลบ quote ที่ระบุ ส่งกลับ deleteId หรือโยน error ถ้า API fail
+
+ฟังก์ชัน addQuote (Create / POST) รับ object quote
+เรียก addItem ส่งไป server เพิ่ม quote ใหม่ คืนค่า object ที่ถูกเพิ่ม
+
+ฟังก์ชัน editQuote (Update / PUT or PATCH)รับ object quote ที่มี id และ field ที่ต้องการแก้ไข
+เรียก editItem อัปเดต quote บน server คืนค่า object ที่แก้ไขแล้ว
+
+2.ฟังก์ชัน displayDialog เป็น ฟังก์ชัน async → สามารถใช้ await ได้ คืนค่า Promise ให้ caller
+Promise จะ resolve เมื่อผู้ใช้กดปุ่ม OK หรือ Cancel dialogMessageEl → <dialog> หรือ element แสดงข้อความ
+okBtnEl ปุ่ม OK cancelBtnEl  ปุ่ม Cancel ปิด dialog (dialogMessageEl.close()) resolve() Promise ส่งค่ากลับไป caller
+await displayDialog()  รอจนผู้ใช้กดปุ่ม OK หรือ Cancel หลังจากกด  ans จะเก็บค่า "OK" หรือ "Cancel" (ตาม text ของปุ่ม)
+console.log(ans)  แสดงค่าที่ผู้ใช้เลือก
+ 
