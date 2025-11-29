@@ -8,39 +8,39 @@
 <body>
      
   <div class="box">
-    <h2>ข้อ 1 — GET Users</h2>
+    <h2>GET Users</h2>
     <button onclick="loadUsers()">load Users</button>
     <ul id="userList"></ul>
   </div>
 
   
   <div class="box">
-    <h2>ข้อ 2 — POST สร้างโพสต์</h2>
+    <h2>POST สร้างโพสต์</h2>
     <button onclick="createPost('New Title', 'This is body text')">create new post</button>
   </div>
 
   
   <div class="box">
-    <h2>ข้อ 3 — PATCH อัปเดต title</h2>
+    <h2>PATCH อัปเดต title</h2>
     <button onclick="updateTitle()">edit Title post ID 1</button>
   </div>
 
   
   <div class="box">
-    <h2>ข้อ 4 — DELETE ลบโพสต์</h2>
+    <h2>DELETE ลบโพสต์</h2>
     <input id="deleteId" placeholder="ใส่ ID ที่ต้องการลบ">
     <button onclick="deletePost(document.getElementById('deleteId').value)">delete post</button>
   </div>
 
   
   <div class="box">
-    <h2>ข้อ 5 — GET with Query Params</h2>
+    <h2>GET with Query Params</h2>
     <button onclick="loadCompletedTodos()">load Completed Todos</button>
   </div>
 
   
   <div class="box">
-    <h2>ข้อ 6 — Upload File (FormData)</h2>
+    <h2>Upload File (FormData)</h2>
     <input type="file" id="fileInput">
     <button onclick="handleUpload()">uploadfile</button>
   </div>
