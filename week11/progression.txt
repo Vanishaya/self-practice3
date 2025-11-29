@@ -1,0 +1,26 @@
+1. loadUsers() — GET ผู้ใช้จาก API เรียก GET https://jsonplaceholder.typicode.com/users แล้วเอา name 
+ของผู้ใช้ทั้งหมดมาแสดงใน <ul id="userList">.
+fetch(url) — ส่ง HTTP GET request ไปยัง endpoint ที่กำหนด
+if (!res.ok) throw new Error(...) — ตรวจ Response.ok (true ถ้า status 200–299) ถ้าไม่ใช่ถือว่า request ผิดพลาดแล้วโยน error เพื่อไปตกใน catch
+await res.json() — แปลง body เป็น JavaScript object/array
+สร้าง HTML (.map(...).join('')) แล้วใส่ใน <ul> เพื่อแสดงผล
+
+2.createPost(title, body) — POST สร้างโพสต์ใหม่ ส่ง POST ไปที่ endpoint เพื่อสร้างโพสต์ใหม่ (JSON body) และรับ response กลับมา (มักจะมี id ที่ server สร้างให้)
+fetch(url, { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({title, body, userId:1}) })
+ตรวจ res.ok (ในโค้ดตัวอย่างเราไม่ได้เช็ค; ควรเช็คได้)
+await res.json() เพื่ออ่าน response object แล้ว console.log ผลลัพธ์
+
+3.pdateTitle() — PATCH แก้ title ของโพสต์ id=1 ส่ง PATCH เพื่อแก้เฉพาะฟิลด์ title ของ resource
+PATCH ใช้เปลี่ยนเฉพาะฟิลด์ที่ต้องการ fetch(url, { method: "PATCH", headers: {"Content-Type":"application/json"}, 
+body: JSON.stringify({ title: "Updated Title" }) })
+อ่าน res.json() เพื่อดูผลลัพธ์
+
+4.deletePost(id) — DELETE ลบโพสต์ ส่ง DELETE ไปยัง /posts/{id} แล้วตรวจสถานะการลบ
+fetch(url, { method: "DELETE" }) แล้วดู res.status === 200 ว่าลบสำเร็จ
+ยืนยันก่อนลบ (confirmation dialog) ลบจาก UI ทันที
+
+5.loadCompletedTodos() — GET with Query Params ดึง TODOs ที่ completed=true ผ่าน query string และนับจำนวน
+URL มี query string ?completed=true — server filter ให้แล้วส่ง array กลับ
+todos.length คือจำนวนรายการที่สำเร็จ
+
+6.uploadImage(file) — POST FormData อัปโหลดไฟล์ ส่ง FormData ที่มีไฟล์ไปยัง endpoint upload
