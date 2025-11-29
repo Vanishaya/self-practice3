@@ -1,0 +1,23 @@
+1.getProducts() — GET ทั้งหมด fetch(url) ส่ง HTTP GET ไปที่ endpoint
+await res.json() แปลง body ของ response (JSON text) เป็น JavaScript object/array
+console.log แสดงข้อมูลทั้งหมดใน console
+try/catch จับ network error หรือการแปลง JSON ผิดพลาด
+
+2.addProduct() — POST เพิ่มสินค้าใหม่ method: "POST" ระบุว่าขอเพิ่มข้อมูลใหม่
+headers: { "Content-Type": "application/json" } แจ้งให้เซิร์ฟเวอร์รู้ว่าข้อมูลใน body เป็น JSON
+body: JSON.stringify(...) แปลง object เป็น JSON string ก่อนส่ง
+หลัง fetch กลับมา เรา await res.json() เพื่อรับ object ที่เซิร์ฟเวอร์ตอบ (มักจะมี id ใหม่)
+
+3.getProductById(id) — GET ตาม ID สร้าง URL แบบ resource-specific โดยเติม id ต่อท้าย
+ตรวจ res.ok ก่อน res.json() — ถ้าไม่ใช่ 2xx จะโยน error เพื่อเข้า catch
+throw new Error("Product not found") ช่วยให้เราจัดการกรณี 404 ได้ชัดเจน
+
+4.updateProduct(id) — PUT (แทนที่ทั้ง object) PUT ควรส่ง object แบบเต็ม (fields ครบ) เพราะ PUT จะ แทนที่ resource ทั้งชิ้น
+ถ้าส่งไม่ครบ บาง backend อาจลบ fields ที่ไม่ได้ส่งให้ (ขึ้นกับ implementation)
+
+5.patchProduct(id) — PATCH (แก้บางส่วน) PATCH ใช้เมื่ออยากแก้เพียงบางฟิลด์ (ไม่ต้องส่งทั้ง object)
+เซิร์ฟเวอร์จะ merge เฉพาะ fields ที่ส่งมา
+เหมาะกับ UI ที่มีฟีลด์แก้ทีละตัว เช่นเปลี่ยนราคาอย่างเดียว
+
+6.deleteProduct(id) — DELETE method: "DELETE" บอกให้ลบ resource ตาม id
+ตรวจ res.status === 200 เป็นการตรวจอย่างง่ายว่าเซิร์ฟเวอร์ตอบสำเร็จ (บาง API อาจใช้ 204 No Content)
