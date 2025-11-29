@@ -1,0 +1,19 @@
+1.dialog1 – ตรวจสอบว่าชื่อว่างหรือไม่ เมื่อกดปุ่ม btnSubmit1 จะอ่านค่าจาก nameInput1 trim() เอาช่องว่างซ้าย-ขวาออก 
+ถ้าชื่อว่าง ("") จะเปิด dialog1 เพื่อแจ้งข้อผิดพลาด ปุ่ม closeError1 ปิด dialog
+
+2.dialog2 – ตรวจสอบตัวเลขเป็นลบหรือไม่ กดปุ่ม btnCheck2 อ่านค่า numInput2 แล้วแปลงเป็นตัวเลข (Number)
+ถ้าตัวเลข น้อยกว่า 0 จะเปิด dialog2 ปุ่ม closeError2 ปิด dialog
+
+3.dialog3 – จับ exception runtime กด btnRun3 แล้วลองรันโค้ดที่อาจ error (y ไม่ได้ประกาศ)
+ถ้าเกิด error จะเข้า catch แสดงข้อความ error ใน <span id="errorMessage3">
+เปิด dialog3 เพื่อแจ้งข้อผิดพลาด
+
+4.dialog4 – จับ error จาก fetch (network error) กดปุ่ม btnLoad4 แล้วเรียก fetch ไป URL ที่ไม่ถูกต้อง
+ถ้า fetch ล้มเหลว จะเข้า catch เปิด dialog4 เพื่อแจ้งข้อผิดพลาด
+
+5.dialog5 – ปิดอัตโนมัติหลัง 3 วินาที กด btnAuto5 จะเปิด dialog5
+ใช้ setTimeout ปิด dialog หลัง 3 วินาที (3000ms) ไม่มีการตรวจสอบ input
+
+6.dialog6 – ตรวจสอบหลายเงื่อนไขและแสดงรายการ error กดปุ่ม btnValidate6 จะตรวจสอบ หลายฟิลด์:
+Email ต้องไม่ว่าง Password ต้อง ≥ 6 ตัวอักษร Age ≥ 18 ถ้ามี error จะเก็บลง errors array
+สร้าง <li> สำหรับแต่ละ error และแสดงใน errorList6 เปิด dialog6 เพื่อแจ้งข้อผิดพลาด

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Dialog Error — 6 Examples</h1>
+
+
+  <section>
+    <h2>Check Empty Input</h2>
+    <input id="nameInput1" type="text" placeholder="Enter name">
+    <button id="btnSubmit1">Submit</button>
+
+    <dialog id="errorDialog1">
+      <p>Error: Name is required.</p>
+      <button id="closeError1">Close</button>
+    </dialog>
+  </section>
+
+
+  <section>
+    <h2>Number Cannot Be Negative</h2>
+    <input id="numInput2" type="number" placeholder="Enter number">
+    <button id="btnCheck2">Check</button>
+
+    <dialog id="errorDialog2">
+      <p>Invalid number! Number cannot be negative.</p>
+      <button id="closeError2">Close</button>
+    </dialog>
+  </section>
+
+
+  <section>
+    <h2>Try/Catch Error</h2>
+    <button id="btnRun3">Run Error Function</button>
+
+    <dialog id="errorDialog3">
+      <p id="errorMessage3"></p>
+      <button id="closeError3">Close</button>
+    </dialog>
+  </section>
+
+
+  <section>
+    <h2>Fetch Error</h2>
+    <button id="btnLoad4">Load Data</button>
+
+    <dialog id="errorDialog4">
+      <p>Network Error: Cannot fetch data.</p>
+      <button id="closeError4">Close</button>
+    </dialog>
+  </section>
+
+
+  <section>
+    <h2>Auto-Close Error</h2>
+    <button id="btnAuto5">Show Auto Error</button>
+
+    <dialog id="errorDialog5">
+      <p>Error: Something went wrong...</p>
+    </dialog>
+  </section>
+
+  
+  <section>
+    <h2>Multiple Errors</h2>
+
+    <input id="email6" type="text" placeholder="Email">
+    <input id="password6" type="password" placeholder="Password">
+    <input id="age6" type="number" placeholder="Age">
+
+    <button id="btnValidate6">Validate</button>
+
+    <dialog id="errorDialog6">
+      <p>Please fix the following errors:</p>
+      <ul id="errorList6"></ul>
+      <button id="closeError6">Close</button>
+    </dialog>
+  </section>
+
+  <script src="source-code_week14.js"></script>
+</body>
+</html>
