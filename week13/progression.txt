@@ -1,0 +1,15 @@
+1.เขียนฟังก์ชัน showCurrentDateTime()แสดงวัน-เวลา ปัจจุบันแบบเต็มรูปแบบ
+new Date() การดึงค่า year / month / date / hours / minutes / seconds
+
+2.รับวันที่สองวัน เช่น2025-01-01 และ 2025-01-20แล้วหาว่าห่างกันกี่วัน Difference in days
+แปลง string → Date คำนวณความแตกต่างด้วย milliseconds ความเข้าใจเรื่อง Unix time
+
+3.เขียนฟังก์ชันที่รับวันที่ แสดงชื่อวันของสัปดาห์ getDay() (คืนค่า 0–6)ใช้ array mapping day-of-week
+
+4.เขียนฟังก์ชัน addDays(date, days) ใส่วันที่เริ่มต้นและจำนวนวันที่ต้องการเพิ่ม ใช้ setDate() และ getDate()
+เข้าใจว่าระบบ Date จะจัดการเดือนและปีให้เอง
+
+5.แสดงเวลาแบบไทย toLocaleDateString() ตั้งค่า locale เป็น "th-TH"แปลง พ.ศ. (ปีไทย = ปีสากล + 543)
+
+6.สร้างฟังก์ชัน countdown(targetDate) คำนวณความแตกต่างของเวลา แปลง milliseconds เป็น วัน/ชั่วโมง/นาที/วินาที
+ใช้ Math.floor() แบ่งเวลา
