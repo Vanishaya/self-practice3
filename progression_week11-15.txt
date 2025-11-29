@@ -1,0 +1,16 @@
+Dialog & Error Handling (UI) เรียนรู้การใช้ <dialog> เพื่อเปิด/ปิด popup สำหรับแสดงข้อผิดพลาด
+ตรวจค่าว่าง ตรวจตัวเลขติดลบ และตรวจหลายเงื่อนไขด้วย array
+ใช้ try/catch เพื่อจับ Runtime error และ Error จาก fetch API
+แสดงข้อความ error แบบ dynamic ลงในหน้าจอ ใช้ setTimeout เพื่อปิด dialog อัตโนมัติ
+แสดงรายการ error หลายข้อผ่าน <li>
+
+CRUD Function ของ Quotes (REST API) loadQuotes() ใช้ GET เพื่อดึงข้อมูล quote ทั้งหมดจาก server
+addQuote() ใช้ POST เพื่อเพิ่ม quote ใหม่ editQuote() ใช้ PUT/PATCH เพื่อแก้ไขข้อมูล quote ตาม id
+deleteQuote() ใช้ DELETE เพื่อลบ quote มีการตรวจ res.ok และโยน error เมื่อ API ล้มเหลว
+ใช้ async/await เพื่อจัดการผลลัพธ์จาก fetch อย่างเป็นระเบียบ
+
+displayDialog (Promise + Dialog) displayDialog() ถูกสร้างแบบ async และคืนค่า Promise 
+Dialog จะเปิดขึ้นและ “รอให้ผู้ใช้กด” OK หรือ Cancel
+การกดปุ่มจะ resolve ค่ากลับเป็น “OK” หรือ “Cancel” Caller สามารถใช้ await displayDialog() เพื่อรอผลได้
+ทำให้ dialog ทำงานเหมือน confirm() แต่ปรับแต่งได้มากกว่า
+ใช้ร่วมกับ UI ที่ต้องรอ Action ของผู้ใช้ก่อนดำเนินงานต่อ
